@@ -93,7 +93,6 @@ public class TrackerTest {
         Item item = new Item("Bug");
         tracker.add(item);
         int id = item.getId();
-        System.out.println(id);
         tracker.delete(id);
         assertThat(tracker.findById(id)).isNull();
     }
