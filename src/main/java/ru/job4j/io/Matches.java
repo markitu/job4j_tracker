@@ -13,8 +13,8 @@ public class Matches {
             System.out.println(player + " введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
             if (matches < 1 || matches > 3 || matches > count) {
-                System.out.println("Вы ввели недопустимое число." +
-                        " Попробуйте ввести снова.");
+                System.out.println("Вы ввели недопустимое число."
+                        + " Попробуйте ввести снова.");
             } else {
                 System.out.println("На столе осталось " + (count - matches) + " спичек.");
                 turn = !turn;
