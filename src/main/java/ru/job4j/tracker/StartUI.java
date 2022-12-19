@@ -2,6 +2,18 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
+    public static void showAllItems(Tracker tracker) {
+        System.out.println("=== Show all items ===");
+        Item[] items = tracker.findAll();
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Хранилище еще не содержит заявок");
+        }
+    }
+
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ===");
         String name = input.askStr("Enter name:");
@@ -32,6 +44,31 @@ public class StartUI {
         }
     }
 
+    public static void findItemById(Input input, Tracker tracker) {
+        System.out.println("=== Find item ===");
+        int id = input.askInt("Enter id: ");
+        Item item = tracker.findById(id);
+        if (item != null) {
+            System.out.println(item);
+        } else {
+            System.out.println("Заявка с введенным id: " + id + " не найдена.");
+        }
+    }
+
+    public static void findItemByName(Input input, Tracker tracker) {
+        System.out.println("=== Find items by name ===");
+        String name = input.askStr("Enter name: ");
+        Item[] items = tracker.findByName(name);
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Заявки с именем: " + name + " не найдены.");
+        }
+    }
+
+
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
@@ -40,39 +77,15 @@ public class StartUI {
             if (select == 0) {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
-                System.out.println("=== Show all items ===");
-                Item[] items = tracker.findAll();
-                if (items.length > 0) {
-                    for (Item item : items) {
-                        System.out.println(item);
-                    }
-                } else {
-                    System.out.println("Хранилище еще не содержит заявок");
-                }
+                StartUI.showAllItems(tracker);
             } else if (select == 2) {
                 StartUI.editItem(input, tracker);
             } else if (select == 3) {
                 StartUI.deleteItem(input, tracker);
             } else if (select == 4) {
-                System.out.println("=== Find item ===");
-                int id = input.askInt("Enter id: ");
-                Item item = tracker.findById(id);
-                if (item != null) {
-                    System.out.println(item);
-                } else {
-                    System.out.println("Заявка с введенным id: " + id + " не найдена.");
-                }
+                StartUI.findItemById(input, tracker);
             } else if (select == 5) {
-                System.out.println("=== Find items by name ===");
-                String name = input.askStr("Enter name: ");
-                Item[] items = tracker.findByName(name);
-                if (items.length > 0) {
-                    for (Item item : items) {
-                        System.out.println(item);
-                    }
-                } else {
-                    System.out.println("Заявки с именем: " + name + " не найдены.");
-                }
+                StartUI.findItemByName(input, tracker);
             } else if (select == 6) {
                 run = false;
             }
