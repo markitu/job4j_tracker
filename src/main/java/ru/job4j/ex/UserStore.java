@@ -21,7 +21,7 @@ public class UserStore {
         return true;
     }
 
-    public static void main(String[] args) throws UserNotFoundException{
+    public static void main(String[] args) throws UserNotFoundException {
         User[] users = {
                 new User("Petr Arsentev", true)
         };
