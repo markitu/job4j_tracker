@@ -2,10 +2,8 @@ package ru.job4j.ex;
 
 public class FactRec {
     public static int calc(int n) {
-        int result;
         if (n == 0 || n == 1) {
-            result = 1;
-            return result;
+            return 1;
         }
         return calc(n - 1) * n;
     }
