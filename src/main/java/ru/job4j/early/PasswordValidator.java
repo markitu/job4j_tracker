@@ -20,7 +20,7 @@ public class PasswordValidator {
         if (!isStringContainsSpecialSymbol(password)) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
-        if (isPasswordContainsValidSubString(password)) {
+        if (isPasswordContainsInvalidSubString(password)) {
             throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
         }
         return password;
@@ -75,7 +75,7 @@ public class PasswordValidator {
         return code >= 32 && code <= 47;
     }
 
-    private static boolean isPasswordContainsValidSubString(String password) {
+    private static boolean isPasswordContainsInvalidSubString(String password) {
         boolean result = false;
         String[] forbiddenWords = new String[] {"qwerty", "12345", "admin", "user", "password"};
         for (String forbiddenWord : forbiddenWords) {
