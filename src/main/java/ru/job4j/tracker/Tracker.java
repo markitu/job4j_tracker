@@ -25,11 +25,12 @@ public class Tracker {
     public List<Item> findByName(String key) {
         List<Item> result = new ArrayList<>();
         int count = 0;
-        for (Item item : items)
+        for (Item item : items) {
             if (item.getName().equals(key)) {
                 result.add(count, item);
                 count++;
             }
+        }
         return result;
     }
 
