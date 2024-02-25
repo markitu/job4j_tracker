@@ -1,9 +1,14 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
 
-public class EditAction implements UserAction {
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.item.Item;
+import ru.job4j.tracker.output.Output;
+import ru.job4j.tracker.Tracker;
+
+public class Edit implements User {
     private final Output out;
 
-    public EditAction(Output out) {
+    public Edit(Output out) {
         this.out = out;
     }
 
