@@ -9,8 +9,8 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item();
         item.setName("test1");
-        tracker.add(item);
-        Item result = tracker.findById(item.getId());
+        tracker.addItem(item);
+        Item result = tracker.findItemById(item.getId());
         assertThat(result.getName()).isEqualTo(item.getName());
     }
 }
