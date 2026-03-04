@@ -11,7 +11,7 @@ public class BallStory {
         hare.tryEat(ball);
         System.out.println("Повстречал колобок волка и ...");
         wolf.tryEat(ball);
-        System.out.println("Повстречал колобок лиу и ...");
+        System.out.println("Повстречал колобок лису и ...");
         fox.tryEat(ball);
     }
 }
