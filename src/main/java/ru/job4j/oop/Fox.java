@@ -3,6 +3,6 @@ package ru.job4j.oop;
 public class Fox {
 
     public void tryEat(Ball ball) {
-        new Ball().tryRun(true);
+        ball.tryRun(true);
     }
 }
