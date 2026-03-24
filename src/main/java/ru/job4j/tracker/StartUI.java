@@ -19,6 +19,12 @@ public class StartUI {
         while (run) {
             showMenu(actions);
             int select = input.askInt("Выбрать: ");
+
+            if (select < 0 || select >= actions.length) {
+                output.println("Неверный ввод, вы можете выбрать: 0 .. " + (actions.length - 1));
+                continue;
+            }
+
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
