@@ -24,15 +24,12 @@ public class ValidateInput implements Input {
         do {
             try {
                 value = input.askInt(question);
-                if (value >= 0 && value <= 6) {
-                    invalid = false;
-                } else {
-                    output.println("Пожалуйста, введите число от 0 до 6");
-                }
+                invalid = false;
             } catch (NumberFormatException nfe) {
                 output.println("Пожалуйста, введите корректные данные");
             }
         } while (invalid);
         return value;
     }
+
 }
